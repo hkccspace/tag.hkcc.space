@@ -243,7 +243,10 @@ require(["vuejs", "jquery", "moment", "fullcalendar", "ics", "FileSaver", "html2
         },
         computed: {
             unsupportedBrowser: function() {
-                var isChrome = !!window.chrome && !!window.chrome.webstore;
+                if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(navigator.vendor)) {
+                  return false; // mobile are not supported
+                }
+                var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
                 var isFirefox = typeof InstallTrigger !== 'undefined';
                 return !(isChrome || isFirefox); // if not chrome or firefox, unsupported
             }
