@@ -123,7 +123,7 @@ require(["vuejs", "jquery", "moment", "fullcalendar", "ics", "FileSaver", "html2
                 return momentObj;
             }
 
-            throw new Error("Cannot resolve the inconsistency");
+            throw new Error("Cannot resolve the inconsistency (" + dayString + " is not " + regexResult[1] + " [" + expectedDay + "])");
         }
 
         function parseTimeString(dateTime, timeString) {
