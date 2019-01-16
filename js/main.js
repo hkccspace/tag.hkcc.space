@@ -81,6 +81,7 @@ require(["vuejs", "jquery", "moment", "fullcalendar", "ics", "FileSaver", "html2
     var Lesson = function(course, activity, day, startTime, endTime, campus, venue, startWeek, endWeek, forEvery) {
         // input dayString:"Mon", weekInfoString:"1 (23-Jan)", output moment
         function parseWeekInfoString(dayString, weekInfoString) {
+            dayString = dayString.trim();
             var regexp = /\((\d+\-\w+)\)/g;
             var regexResult = regexp.exec(weekInfoString);
 
